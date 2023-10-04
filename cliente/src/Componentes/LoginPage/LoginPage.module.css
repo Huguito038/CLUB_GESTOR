@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,600;10..48,700;10..48,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,300;1,400&display=swap');
+
+.contenedor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(232, 242, 253);
+}
+
+
+.formulario{
+    justify-content: space-between;
+    font-family: 'Prompt', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 70%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+}
+
+.img_form{
+    width: 50%;
+    background-image: url("https://cdn.pixabay.com/photo/2015/01/26/22/40/child-613199_1280.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+
+}
+
+.titulo{
+    font-size: 50px;
+    margin-top: 40px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titulo_2{
+    margin-top: -10px;
+    font-size: 70px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cont{
+    margin-left: 5%;
+}
+
+.subtitulo{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Prompt', sans-serif;
+    color: rgb(31, 31, 31);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login{
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: rgb(214, 232, 252);;
+    font-size: 60px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+.input{
+    width:100%;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    background-color: #eeffffa4;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.212);
+    border: none;
+    font-weight: 200;
+    border-radius: 5px;
+    font-family: 'Prompt', sans-serif;
+  &::placeholder{
+    color: #adadad;
+    font-size: 15px;
+    font-weight: 100;
+  }
+}
+
+.info{
+    font-size: 17px;
+    margin-top: 20px;
+    font-weight: 200;
+    align-items: center;
+    color: rgb(150, 150, 150);
+}
+
+.info2{
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.cont_buttom{
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    & button{
+        border: none;
+        padding: 10px;
+        font-size: 17px;
+        background-color: rgb(150, 201, 255);;
+        border-radius: 20px;
+        color: white;
+        transition: 0.7s ease all;
+        &:hover{
+            transform: scale(1.15);
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+.cont_buttom h2{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.form{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 50px;
+
+}
+
+.errors{
+    font-size: 13px;
+    text-align: center;
+    color: red;
+    font-family: 'Prompt', sans-serif;
+}
+
+.error{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Prompt', sans-serif;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+}
+

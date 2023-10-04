@@ -1,0 +1,58 @@
+
+
+
+.contenedor_info_carnet{
+
+    width: 400px;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    height: 253px;
+    background-size: contain;
+    background-position: 10px -2px;
+    top: 1110px;
+    left: 0;
+    margin: auto;
+}
+
+
+
+.contenedor_info_carnet h4{
+    position: absolute;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    top: 90px;
+    color: #000000;
+    left: 135px;
+}
+
+
+
+.contenedor_info_carnet h5{
+    position: absolute;
+    font-size: 18px;
+    top: 140px;
+    left: 135px;
+    color: #000000;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.contendor_carnet{
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    z-index: 999;
+    bottom: 0;
+    margin: auto;
+}
+
+.qr_carnet{
+    width: 59px;
+    height: 59px;
+    position: absolute;
+    right: 25px;
+    background-color: transparent;
+    top: 117px;
+}

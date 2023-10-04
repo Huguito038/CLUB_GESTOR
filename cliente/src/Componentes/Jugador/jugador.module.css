@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+
+.contenedor{
+    width: 100%;
+    position: relative;
+    right: 0;
+    align-items: center;
+    height: 93vh;
+    background-color: rgb(232, 242, 253);
+}
+
+.nombre_delete{
+    text-align: center;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: 'Urbanist', sans-serif;
+}
+.modalfooter{
+    display: flex;
+    justify-content: center;
+}
+.modalheader{
+    background-color: #950015;
+    justify-content: end;
+    font-size: 20px;
+    & h2{
+        font-size: 30px;
+    }
+}
+.alin_bot{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    & Button{
+        margin-left: 20px;
+        margin-right: 40px;
+    }
+}
+
+.modalbody{
+    text-align: center;
+}
+.cont_centr{
+    position: absolute;
+    box-shadow:  1px 1px 20px rgba(0, 0, 0, 0.596), 0 5px 5px -20px #000000;
+    border-radius: 10px;
+    top: 15px;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.input_name{
+    text-decoration: none;
+    border: none;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 60px;
+    font-family: 'Paytone One', sans-serif;
+    font-weight: 500;
+}
+
+.info_secundaria{ 
+    display: flex;
+    margin-left: 10px;
+    font-size: 20px;
+    align-items: center;
+    padding-bottom: 30px;
+    & h2{
+        font-weight: 700;
+        font-size: 20px;
+    }
+    & input{
+        margin-left: 10px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        font-size: 19px;
+        
+    }
+    & select{
+        margin-left: 15px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        font-size: 19px;
+        text-align: center;
+        & option{
+            font-weight: 300;
+        }
+    }
+}
+
+.alert{
+    position: absolute;
+    z-index: 99990;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.mycheck {
+    cursor: pointer;
+    background-color: #cc3d3d;
+    width: 58px;
+    height: 18px;
+    transition: 0.5s ease all;
+    appearance: none;
+    border-radius: 4px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.212);
+    &:checked {
+        background-color: rgb(42, 189, 79);
+      }
+}
+
+.cuota{
+    font-size: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+
+.imprimir{
+    position: absolute;
+    bottom:20px;
+    right: 0;
+    font-size: 13px;
+    width: 170px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imprimir2{
+    position: absolute;
+    bottom:20px;
+    left: 0;
+    font-size: 13px;
+    width: 170px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info_second{
+    position: absolute;
+    left: 400px;
+    margin-left: 10px;
+    font-size: 20px;
+    align-items: center;
+    & h2{
+        font-weight: 700;
+        font-size: 20px;
+    }
+    & input{
+        margin-left: 10px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        font-size: 19px;
+        
+    }
+    & select{
+        margin-left: 15px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        font-size: 19px;
+        text-align: center;
+        & option{
+            font-weight: 300;
+        }
+    }
+}
+    
+    
+
+
+.info_second div h2{
+    font-family: 'Oswald', sans-serif;
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-size: 23px;
+
+}
+.info_second div{
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 30px;
+}
+
+.info_secundaria div{
+    display: flex;
+    align-items: baseline;
+}
+
+.comision_t{
+    font-size: 30px;
+    font-weight: 200;
+    margin-left: 50px;
+}
+
+
+.info_secundaria div h2{
+    font-family: 'Oswald', sans-serif;
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-size: 23px;
+
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,700;1,800&display=swap');
+
+
+.contenedor_info_carnet{
+    width: 400px;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    height: 253px;
+    background-size: contain;
+    background-position: 10px -2px;
+    left: 0;
+    margin: auto;
+}
+
+
+
+.contenedor_info_carnet h4{
+    position: absolute;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    top: 90px;
+    color: #000000;
+    left: 130px;
+}
+
+
+
+.contenedor_info_carnet h5{
+    position: absolute;
+    font-size: 16px;
+    top: 140px;
+    left: 130px;
+    color: #000000;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.contendor_carnet{
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.arrow{
+    position: absolute;
+    font-size: 60px;
+    top: 30px;
+    left: 40px;
+    color: #0e2125;
+    :hover{
+        transition: 1s ease;
+        cursor: pointer;
+        color: #950015;
+    }
+}
+
+.qr_carnet{
+    width: 59px;
+    height: 59px;
+    position: absolute;
+    right: 27.5px;
+    background-color: transparent;
+    top: 116px;
+}
+
+.carnet_imp{
+    background-color: rgb(128, 57, 57);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.212);
+    font-size: 25px;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;700&display=swap');
+
+.carnet_impre{
+    background-color: rgb(83, 133, 83);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.212);
+    font-size: 25px;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+}
+
+
+
+.cont{
+    width: 99.5%;
+    position: absolute;
+    bottom: 0;
+    z-index: -10000;
+    margin-left: 1px;
+    margin-bottom: 3px;
+    height: 250px;
+    display: flex;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.parte_tiro{
+    width: 30%;
+    height: 100%;
+    border-right: 1px dotted black;
+    text-align: center;
+    padding-top: 12px;
+
+}
+
+.parte_tiro h2{
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+}
+
+.parte_tiro h4{
+    font-weight: 200;
+    margin-bottom: 2px;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: underline dashed;
+}
+
+.parte_jugador{
+    width: 70%;
+    position: relative;
+}
+.titu{
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+}
+.titu h2{
+    letter-spacing: 3px;
+    font-size: 25px;
+}
+.titu h4{
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    font-weight: 200;
+
+
+}
+
+.parte_jugador h3{
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    margin-top: 20px;
+}
+.parte_jugador h4{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 20px;
+    
+
+}
+.reciv{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.reciv h3{
+    font-weight: 300;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.reciv h4{
+    font-weight: 200;
+    text-decoration: underline dashed;
+}
+
+.parte_jugador img{
+    width: 120px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+.parte_jugador h5{
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+}
+
+.modalheader2{
+    background-color: rgb(232, 242, 253);
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    & h2{
+        font-size: 30px;
+        
+    }
+}
+
+.cuotass{
+    display: flex;
+    align-items: baseline;
+    font-size: 20px;
+   
+    & h2{
+        font-size: 20px;
+    }
+    & div{
+        margin-left: 13px;
+    }
+}
+
+.cuoter{
+    text-align: start;
+    
+}
+
+.checka{
+    cursor: pointer;
+    background-color: #cc3d3d;
+    width: 88px;
+    margin-left: 30px;
+    border-radius: 10px;
+    height: 18px;
+    transition: 0.5s ease all;
+    appearance: none;
+    border: 1px solid #030101;
+    &:checked {
+        background-color: rgb(42, 189, 79);
+      }
+}
+
+
+.tablo{
+    text-align: center;
+   
+}
+
+
+
+.input_secondari{
+    background-color: aliceblue;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.212);
+    border-radius: 10px;
+    &:focus{
+        outline:none !important;
+        border: 1px solid rgb(147, 186, 192);
+    }
+}
+
+
+.succes{
+    background: linear-gradient(to left,#34db66ce,#3d9147);
+    border: none;
+    font-weight: 600;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.212);
+    
+}

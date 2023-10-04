@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
+.contenedor{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+    box-shadow:  10px 2px 15px rgb(3, 3, 3);
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    z-index: 10000000;
+}
+
+
+.contenedor img{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.titulo{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contenedor div{
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.cont_links{
+    list-style: none;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    text-align: center;
+}
+.cont_links li h2{
+    text-align: center;
+    font-size: 15px;
+    padding-top: 10px;
+    margin: 0 auto;
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: black;
+    font-weight: 200;
+    
+}
+
+.cont_links li{
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 1000px;
+    padding-bottom: 1000px;
+    transition: 1s ease all;
+    &:hover{
+        background-color: #000000;
+        & h2{
+            color: white;
+        }
+        
+    }
+    
+    
+}
+
+.usuario h2{
+    font-size: 13px;
+}
+
+.usuario{
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usuario img{
+    width: 20px;
+    height: 20px;
+}
+
+.fa:hover{
+    color: green;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.boton{
+    border: none;
+    height: 30%;
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    transition: 200ms ease all;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
