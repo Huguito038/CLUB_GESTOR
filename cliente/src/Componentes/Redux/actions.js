@@ -20,7 +20,7 @@ export const loginUser = (userData) => async (dispatch) => {
 };
 export const logout = ()=>async(dispatch)=>{
     try {
-        await axios.post('/logout')
+        await axios.post('https://clubpro-gestor.onrender.com/api/logout')
         dispatch({
             type: "LOGOUT",
         })
@@ -32,7 +32,7 @@ export const logout = ()=>async(dispatch)=>{
 }
 export const registerUser = (userData) =>async(dispatch)=>{
     try{
-        const response = await axios.post('/newuser', userData); 
+        const response = await axios.post('https://clubpro-gestor.onrender.com/api/newuser', userData); 
         console.log(response.data)
         if(response.data){
         dispatch({
@@ -50,7 +50,7 @@ export const registerUser = (userData) =>async(dispatch)=>{
 }
 export const getAllPlayers = () => async(dispatch)=>{
     try {
-        const users =  await axios.get('/all')
+        const users =  await axios.get('https://clubpro-gestor.onrender.com/api/all')
         dispatch({
             type:"GETALLPLAYERS",
             payload:users.data
@@ -61,7 +61,7 @@ export const getAllPlayers = () => async(dispatch)=>{
 }
 export const verifyToken= ()=> async(dispatch)=>{
     try{
-        const res = await axios.get("/verify")
+        const res = await axios.get("https://clubpro-gestor.onrender.com/api/verify")
         if(!res.data){
             dispatch({
                 type:"AUTH_DENIED"
@@ -85,7 +85,7 @@ export const tokenNotExist = ()=> async(dispatch)=>{
 }
 export const createPlayer = (data)=> async(dispatch)=>{
     try {
-        const res = await axios.post('/registrar',data)
+        const res = await axios.post('https://clubpro-gestor.onrender.com/api/registrar',data)
         if(res.status === 200){
             console.log("NO-REPETIDO")
            dispatch({
@@ -108,7 +108,7 @@ export const SetDefault = ()=> async(dispatch)=>{
 }
 export const infoPlayer = (id)=> async(dispatch)=>{
     try {
-        const res = await axios.get("/find/"+id)
+        const res = await axios.get("https://clubpro-gestor.onrender.com/api/find/"+id)
         if(res){
             dispatch({
                 type:"PLAYER_INFO",
@@ -131,7 +131,7 @@ export const cleanInfoPlayer = ()=>async(dispatch)=>{
 export const updatePlayer = (data)=>async()=>{
     console.log(data)
     try {
-        await axios.put("/update/"+data._id, data)
+        await axios.put("https://clubpro-gestor.onrender.com/api/update/"+data._id, data)
     } catch (error) {
         console.log(error)
         
@@ -141,7 +141,7 @@ export const updatePlayer = (data)=>async()=>{
 export const deletePlayer = (id) => async()=>{
     try {
         console.log(id)
-        await axios.delete("/delete/"+id)
+        await axios.delete("https://clubpro-gestor.onrender.com/api/delete/"+id)
     } catch (error) {
         console.log(error)
     }
