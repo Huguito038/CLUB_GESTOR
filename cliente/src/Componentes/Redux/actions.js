@@ -1,11 +1,11 @@
-import axios from './DefaultAxios';
+
 
 
 
 export const loginUser = (userData) => async (dispatch) => {
     
     try {
-        const response = await axios.post('/login', userData); // Ajusta la ruta según tu backend
+        const response = await axios.post('https://clubpro-gestor.onrender.com/api/login', userData); // Ajusta la ruta según tu backend
         if(response.data.id){
             dispatch({
                 type: 'LOGIN_SUCCESS',
