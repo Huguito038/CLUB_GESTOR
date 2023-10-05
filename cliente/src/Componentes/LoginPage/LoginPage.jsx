@@ -23,6 +23,7 @@ export default function LoginPage() {
   const dispatch = useDispatch();
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data)
     try {
       await dispatch(loginUser(data));
       if (auth) {
