@@ -45,7 +45,7 @@ export const login = async(req,res)=>{
 
         const token = await CrearToken({id:userFound.id})
         res.cookie("token",token,{
-            sameSite: "lax",
+            sameSite: "none",
             secure: false, // Cambiado a false si no estás utilizando HTTPS
             httpOnly: false
         })

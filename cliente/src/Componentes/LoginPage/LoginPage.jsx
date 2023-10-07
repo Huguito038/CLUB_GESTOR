@@ -26,9 +26,7 @@ export default function LoginPage() {
     console.log(data)
     try {
       await dispatch(loginUser(data));
-      if (auth) {
-        navigate("/home");
-      }
+      
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
