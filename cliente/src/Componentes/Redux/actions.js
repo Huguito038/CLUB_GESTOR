@@ -4,7 +4,6 @@ export const loginUser = (userData) => async (dispatch) => {
     
     try {
         const response = await axios.post('https://clubpro-gestor.onrender.com/api/login', userData); // Ajusta la ruta según tu backend
-        console.log(response.data.nombre)
         if(response.data.id){
             dispatch({
                 type: 'LOGIN_SUCCESS',
@@ -12,7 +11,6 @@ export const loginUser = (userData) => async (dispatch) => {
             });
         }      
     } catch (error) {
-        console.log(error.response.data.message)
         dispatch({
             type:"LOGIN_DENIED",
             payload:error.response.data
@@ -57,7 +55,7 @@ export const getAllPlayers = () => async(dispatch)=>{
             payload:users.data
         })
     } catch (error) {
-        console.log(error.message)
+        
     }
 }
 export const verifyToken= ()=> async(dispatch)=>{

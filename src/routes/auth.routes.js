@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "content-type");
     res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
      });
+     
 router.post("/newuser",validateSchema(registerSchema),register)
 router.post("/login",validateSchema(loginSchema),login)
 router.post("/logout",logout)

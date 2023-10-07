@@ -14,6 +14,8 @@ export default function ProtectedRoutes (){
     useEffect(()=>{
         async function CheckAuth (){
         const cookies = Cookies.get()
+        console.log(auth)
+        console.log(cookies.token)
         if(cookies.token){
             await dispatch(verifyToken())
         }else{

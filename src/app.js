@@ -9,10 +9,15 @@ import cors from "cors"
 const app = express()
 
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Reemplaza con la URL de tu frontend
+    credentials: true, // Si estás usando cookies, asegúrate de permitir credenciales
+  }));
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(cookieParser())
+
+
 app.use("/api",crudBack)
 app.use("/api",authRoutes)
 
