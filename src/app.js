@@ -10,7 +10,7 @@ const app = express()
 
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Reemplaza con la URL de tu frontend
+    origin: '*', // Reemplaza con la URL de tu frontend
     credentials: true, // Si estás usando cookies, asegúrate de permitir credenciales
   }));
 app.use(morgan("dev"))

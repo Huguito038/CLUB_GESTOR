@@ -15,7 +15,7 @@ export default function ProtectedRoutes (){
         async function CheckAuth (){
         const cookies = Cookies.get()
         console.log(auth)
-        console.log(cookies.token)
+        console.log(cookies)
         if(cookies.token){
             await dispatch(verifyToken())
         }else{
