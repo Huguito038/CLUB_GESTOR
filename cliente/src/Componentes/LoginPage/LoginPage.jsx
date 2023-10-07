@@ -25,7 +25,7 @@ export default function LoginPage() {
   const onSubmit = handleSubmit(async (data) => {
     console.log(data)
     try {
-      dispatch(loginUser(data));
+      await dispatch(loginUser(data));
       if (auth) {
         navigate("/home");
       }

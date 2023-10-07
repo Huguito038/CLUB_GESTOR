@@ -1,9 +1,11 @@
-import axios from "axios"
+import axios from "./DefaultAxios"
+
 
 export const loginUser = (userData) => async (dispatch) => {
     
     try {
-        const response = await axios.post('https://clubpro-gestor.onrender.com/api/login', userData); // Ajusta la ruta según tu backend
+        const response = await axios.post('/login', userData); 
+        console.log(response.data);
         if(response.data.id){
             dispatch({
                 type: 'LOGIN_SUCCESS',
@@ -60,7 +62,7 @@ export const getAllPlayers = () => async(dispatch)=>{
 }
 export const verifyToken= ()=> async(dispatch)=>{
     try{
-        const res = await axios.get("https://clubpro-gestor.onrender.com/api/verify")
+        const res = await axios.get("/verify")
         if(!res.data){
             dispatch({
                 type:"AUTH_DENIED"
