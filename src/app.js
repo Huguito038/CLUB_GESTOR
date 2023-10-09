@@ -14,7 +14,7 @@ app.use(cors({
     credentials: true, // Si estás usando cookies, asegúrate de permitir credenciales
   }));
 app.use((req,res,next)=>{
-  res.append("Access-Control-Max-Age", "1800");
+  res.append("Access-Control-Max-Age", "18000");
   res.append("Access-Control-Allow-Headers", "content-type");
   res.append("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
 
