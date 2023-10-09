@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../Redux/actions";
@@ -26,9 +26,7 @@ export default function LoginPage() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await dispatch(loginUser(data));
-      if(auth){
-        navigate("/home")
-      }
+      if(auth){navigate("/home")}
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
