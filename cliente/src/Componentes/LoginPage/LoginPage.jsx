@@ -9,6 +9,7 @@ import stilo from "../LoginPage/LoginPage.module.css";
 import { Link } from "react-router-dom";
 import { FaUserAlt, FaUnlockAlt } from "react-icons/fa";
 import AOS from 'aos';
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   AOS.init();
@@ -23,10 +24,11 @@ export default function LoginPage() {
   const dispatch = useDispatch();
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data)
     try {
       await dispatch(loginUser(data));
-      
+      if(auth){
+        navigate("/home")
+      }
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }

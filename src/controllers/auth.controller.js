@@ -46,11 +46,12 @@ export const login = async(req,res)=>{
         const token = await CrearToken({id:userFound.id})
         res.cookie("token",token,{
             sameSite: "none",
-            secure: false, // Cambiado a false si no estás utilizando HTTPS
+            secure: true, // Cambiado a false si no estás utilizando HTTPS
             httpOnly: false
         })
         res.json({
             id:userFound.id,
+            token:token,
             nombre:userFound.nombre,
             email:userFound.email
         })  

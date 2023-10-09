@@ -10,9 +10,17 @@ const app = express()
 
 
 app.use(cors({
-    origin: 'https://club-gestor.vercel.app/', // Reemplaza con la URL de tu frontend
+    origin: 'https://club-gestor.vercel.app', // Reemplaza con la URL de tu frontend
     credentials: true, // Si estás usando cookies, asegúrate de permitir credenciales
   }));
+app.use((req,res,next)=>{
+  res.append("Access-Control-Max-Age", "1800");
+  res.append("Access-Control-Allow-Headers", "content-type");
+  res.append("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+
+  next();
+
+})
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(cookieParser())
