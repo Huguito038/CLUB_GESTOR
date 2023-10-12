@@ -26,7 +26,7 @@ export default function LoginPage() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await dispatch(loginUser(data));
-      if(auth){navigate("/home")}
+      navigate("/home")
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
