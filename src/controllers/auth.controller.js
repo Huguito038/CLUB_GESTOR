@@ -83,7 +83,6 @@ export const profile = async(req,res)=>{
 }
 export const verifyToken = async (req, res) => {
     const { token } = req.cookies;
-    return res.send(token)
   
     if (!token) {
       return res.status(400).json({ message: "Desautorizado" });
