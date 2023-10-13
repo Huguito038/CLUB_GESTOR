@@ -1,11 +1,10 @@
 import stilo from "../Barra/Barra.module.css"
 import { Link} from "react-router-dom"
 import React from 'react';
-import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/actions";
 import { useNavigate } from "react-router-dom";
-import { FaPencilAlt } from 'react-icons/fa';
+
 
 
 export default function Barra() {
@@ -14,9 +13,7 @@ export default function Barra() {
     const dispatch = useDispatch()
     const onSubmit = async() => {
         try {
-            await dispatch(logout);
-            Cookies.remove("token")
-            navigate("/")
+            await dispatch(logout());
         } catch (error) {
             console.error("Error :", error);
         }

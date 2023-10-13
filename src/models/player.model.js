@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import { boolean, string } from "zod";
 
 const playerSchema = new mongoose.Schema({
     nombre:{
-        type: String, 
+        type: String,
         required:true,
         trim:true,
         sparse: true,

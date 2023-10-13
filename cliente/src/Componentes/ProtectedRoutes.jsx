@@ -10,10 +10,10 @@ export default function ProtectedRoutes (){
     const dispatch = useDispatch()
     const auth = useSelector(state=>state.isAuthenticated)
     const loading = useSelector(state=>state.loading)
-
+    
     useEffect(()=>{
         async function CheckAuth (){
-        await dispatch(verifyToken())
+            await dispatch(verifyToken())
     }
     CheckAuth()
 },[])

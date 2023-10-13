@@ -2,14 +2,12 @@ import axios from "./DefaultAxios"
 
 
 export const loginUser = (userData) => async (dispatch) => {
-    
     try {
         const response = await axios.post('/login', userData); 
-        console.log(response.data);
         if(response.data.id){
             dispatch({
                 type: 'LOGIN_SUCCESS',
-                payload: response.data, // Suponiendo que el backend devuelve los datos del usuario
+                payload: response.data, 
             });
         }      
     } catch (error) {
@@ -19,15 +17,16 @@ export const loginUser = (userData) => async (dispatch) => {
         })
     }
 };
-export const logout = ()=>async(dispatch)=>{
+export const logout = () => async (dispatch) => {
     try {
-        await axios.post('/logout')
+        const hola  = await axios.post('/logout')
+        console.log(hola)
         dispatch({
             type: "LOGOUT",
         })
         
     } catch (error) {
-        
+        console.log("errorrrrrrr")
     }
 
 }

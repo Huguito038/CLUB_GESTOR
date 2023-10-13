@@ -48,11 +48,10 @@ export const login = async(req,res)=>{
             sameSite: "none",
             secure: true,
             httpOnly: false,
-            path: "/",
+
         })
         res.json({
             id:userFound.id,
-            token:token,
             nombre:userFound.nombre,
             email:userFound.email
         })  
@@ -63,10 +62,18 @@ export const login = async(req,res)=>{
 
 }
 export const logout = (req,res)=>{
-    res.cookie("token","",{
-        expires: new Date(0),
-    });
-    return res.sendStatus(200)
+    try{
+        res.cookie("token","",{
+        sameSite: "none",
+        secure: true,
+        httpOnly: false,
+    })
+    res.clearCookie('token');
+        return res.sendStatus(200)
+    }catch(error){
+        res.send(error.message)
+
+    }
 }
 export const profile = async(req,res)=>{
     const userFound = await User.findById(req.user.id)
