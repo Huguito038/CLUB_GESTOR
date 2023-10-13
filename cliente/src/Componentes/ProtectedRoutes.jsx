@@ -2,8 +2,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate, Outlet } from "react-router-dom"
 import { useEffect } from "react"
-import Cookies from "js-cookie"
-import { verifyToken,tokenNotExist } from "./Redux/actions"
+import { verifyToken} from "./Redux/actions"
 
 
 export default function ProtectedRoutes (){
