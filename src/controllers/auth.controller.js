@@ -48,7 +48,6 @@ export const login = async(req,res)=>{
             sameSite: "none",
             secure: true,
             httpOnly: false,
-            domain: "club-gestor.vercel.app",
             path: "/",
         })
         res.json({
