@@ -13,13 +13,7 @@ export default function ProtectedRoutes (){
 
     useEffect(()=>{
         async function CheckAuth (){
-        const cookies = Cookies.get()
-        console.log(cookies)
-        if(cookies.token){
-            await dispatch(verifyToken())
-        }else{
-           await dispatch(tokenNotExist())
-        }
+        await dispatch(verifyToken())
     }
     CheckAuth()
 },[])
