@@ -9,7 +9,7 @@ import stilo from "../LoginPage/LoginPage.module.css";
 import { Link } from "react-router-dom";
 import { FaUserAlt, FaUnlockAlt } from "react-icons/fa";
 import AOS from 'aos';
-import Cookies from "js-cookie";
+
 
 export default function LoginPage() {
   AOS.init();
@@ -37,8 +37,8 @@ export default function LoginPage() {
       <div className={stilo.formulario}>
         <div className={stilo.img_form}>
           <div className={stilo.cont}>
-            <h2 data-aos="fade-left"  className={stilo.titulo}>ClubPro</h2>
-            <h2 data-aos="fade-left"  className={stilo.titulo_2}>Manager.</h2>
+            <h2 data-aos="fade-left" data-aos-duration="1000" className={stilo.titulo}>ClubPro</h2>
+            <h2 data-aos="fade-left" data-aos-duration="2000" className={stilo.titulo_2}>Manager.</h2>
             <h3 className={stilo.subtitulo}>
               Tu Herramienta de Gestión Deportiva
             </h3>

@@ -6,9 +6,11 @@ import { getAllPlayers } from "../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Deportes_list } from "../extras";
+import AOS from 'aos';
 import { FcBusinessman,FcPrint,FcCalendar,FcPortraitMode,FcSportsMode,FcDribbble} from "react-icons/fc";
 
 export default function Home (){
+    AOS.init();
     const dispatch = useDispatch();
     const players = useSelector((state) => state.jugadores);
     const [jugadores, setJugadores] = useState([])
@@ -82,7 +84,7 @@ export default function Home (){
             <h2>Bienvendio a Club Pro Manager</h2>
             <div>
                 <div className={stilo.sections}>
-                    <div>
+                    <div data-aos="zoom-in-down"  data-aos-duration="1000">
                         <FcPortraitMode className={stilo.fa}></FcPortraitMode>
                         <section className={stilo.linea}></section>
                         <div>
@@ -90,7 +92,7 @@ export default function Home (){
                             <h2>{jugadores.length}</h2>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="100">
                         <FcCalendar className={stilo.fa}></FcCalendar>
                         <section className={stilo.linea}></section>
                         <div>
@@ -98,7 +100,7 @@ export default function Home (){
                             <h2>{jugadores_aldia}</h2>
                         </div>
                     </div>
-                    <div>
+                    <div  data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="200">
                         <FcPrint className={stilo.fa}></FcPrint>
                         <section className={stilo.linea}>,</section>
                         <div>
@@ -106,7 +108,7 @@ export default function Home (){
                             <h2>{carnet_imp.length}</h2>
                         </div>
                     </div>
-                    <div>
+                    <div  data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="300">
                         <FcSportsMode className={stilo.fa}></FcSportsMode>
                         <section className={stilo.linea}>,</section>
                         <div>
@@ -114,7 +116,7 @@ export default function Home (){
                             <h2>{Deportes_list.length}</h2>
                         </div>
                     </div>
-                    <div>
+                    <div  data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="400">
                         <FcBusinessman className={stilo.fa}></FcBusinessman>
                         <section className={stilo.linea}>,</section>
                         <div>
