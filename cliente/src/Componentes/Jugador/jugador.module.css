@@ -238,7 +238,7 @@
     position: absolute;
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
-    top: 90px;
+    top: 89px;
     color: #000000;
     left: 135px;
 }
@@ -248,7 +248,7 @@
 .contenedor_info_carnet h5{
     position: absolute;
     font-size: 16px;
-    top: 140px;
+    top: 139px;
     left: 135px;
     color: #000000;
     font-family: 'Rubik', sans-serif;
@@ -283,7 +283,7 @@
     width: 59px;
     height: 59px;
     position: absolute;
-    right: 24.7px;
+    right: 24px;
     background-color: transparent;
     top: 117px;
 }
