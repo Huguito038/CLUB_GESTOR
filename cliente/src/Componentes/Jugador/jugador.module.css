@@ -237,8 +237,10 @@
 .contenedor_info_carnet h4{
     position: absolute;
     font-size: 16px;
+    z-index: -100;
     font-family: 'Rubik', sans-serif;
     top: 90px;
+    width: 300px;
     color: #000000;
     left: 132px;
 }
@@ -258,6 +260,7 @@
 .contendor_carnet{
     position: absolute;
     z-index: -1000;
+    overflow: hidden;
     top: 0;
     left:0;
     right: 0;
@@ -281,6 +284,7 @@
 .qr_carnet{
     width: 59px;
     height: 59px;
+    z-index: -999;
     position: absolute;
     right: 26.7px;
     background-color: transparent;
