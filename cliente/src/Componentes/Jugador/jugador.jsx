@@ -212,7 +212,7 @@ export const Jugador = () => {
                 <h5>{info.documento}</h5>
                 <div>
                     <QRCode fgColor="#000000"
-                    bgColor="#00FF0000"className={stilo.qr_carnet}value={"http://localhost:3000/perfil/"+info._id}></QRCode>
+                    bgColor="#00FF0000"className={stilo.qr_carnet}value={"https://club-gestor.vercel.app/perfil/"+info._id}></QRCode>
                 </div>
              </div>
       </div>
