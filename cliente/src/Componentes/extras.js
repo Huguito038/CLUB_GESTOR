@@ -13,11 +13,11 @@ export const categorias = {
 
 
 export const Deportes = [
-    "Pilates","Futbol","Teakwondo","Karate","Tai-Chi","Patin","COMISION DIRECTIVA"
+    "Pilates","Futbol","Teakwondo","Karate","Tai-Chi","Patin","Acrotelas","COMISION DIRECTIVA"
 ]
 
 export const Deportes_list = [
-    "Pilates","Futbol","Teakwondo","Karate","Tai-Chi","Patin"
+    "Pilates","Futbol","Teakwondo","Karate","Tai-Chi","Patin","Acrotelas"
 ]
 
 export const cuotas = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
