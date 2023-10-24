@@ -12,6 +12,7 @@ import { AllPlayers } from './Componentes/AllPlayers/AllPlayers';
 import { Jugador } from './Componentes/Jugador/jugador';
 import { Comision } from './Componentes/Comision/Comision';
 import { Categoria } from './Componentes/Categorias/categorias';
+import Loader from './Componentes/Loader/Loader';
 
 function App() {
   const {pathname} = useLocation()
