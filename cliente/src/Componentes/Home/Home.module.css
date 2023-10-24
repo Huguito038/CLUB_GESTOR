@@ -4,13 +4,15 @@
         width: 100%;
         position: relative;
         right: 0;
+        overflow: hidden;
         background-color: rgb(232, 242, 253);
         align-items: center;
-        height: 100vh;
+        height: 100%;
         & h2{
+            font-size: 3vw;
             font-family: 'Dela Gothic One', cursive;
             text-align: center;
-            padding-top: 50px;
+            padding-top: 5vh;
         }
     }
 
@@ -25,19 +27,22 @@
 .sections div{
     background-color: aliceblue;
     display: flex;
-    border-radius: 15px;
+    margin-right: 5vw;
+    border-radius: 1.2vw;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
     & div{
         display: block;
-        margin-left: 20px;
-        margin-top: -30px;
-        margin-right: 20px;
-        width: 320px;
+        margin-left: 2vw;
+        margin-top: -4vh;
+        margin-right: 2vw;
+        width: 20vw;
+        height: 5%;
         box-shadow: none;
         background-color: transparent;
         & h2{
-            font-size: 25px;
+            padding-top: 8.2vh;
+            font-size: 1.5vw;
             color:rgb(73, 73, 73) ;
             
             
@@ -55,7 +60,7 @@
 }
 
 .linea{
-    width: 1px;
+    width: 0.1vw;
     height: 90%;
     margin: auto;
     background-color: rgb(167, 163, 163);

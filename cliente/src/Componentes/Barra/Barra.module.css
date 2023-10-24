@@ -8,23 +8,25 @@
     display: flex;
     overflow: hidden;
     justify-content: space-around;
-    box-shadow:  10px 2px 15px rgb(3, 3, 3);
-    height: 80px;
+    height: 13vh;
     background-color: rgb(255, 255, 255);
     z-index: 10000000;
 }
 
 
 .contenedor img{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
+    width: 15%;
+    height: 40%;
+    padding-right: 0.3vw;
+    margin-left: 1vw;
+    border-radius: 2vw;
 }
 
 .titulo{
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 18px;
+    font-size: 1.2vw;
     display: flex;
+    width: 20vw;
     align-items: center;
     font-weight: 600;
     text-align: center;
@@ -44,8 +46,8 @@
 }
 .cont_links li h2{
     text-align: center;
-    font-size: 15px;
-    padding-top: 10px;
+    font-size: 1.2vw;
+    padding-top: 1vh;
     margin: 0 auto;
     text-decoration: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -56,10 +58,10 @@
 
 .cont_links li{
     width: auto;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 1000px;
-    padding-bottom: 1000px;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 154vh;
+    padding-bottom: 154vh;
     transition: 1s ease all;
     &:hover{
         background-color: #000000;
@@ -73,7 +75,9 @@
 }
 
 .usuario h2{
-    font-size: 13px;
+    padding-top: 1vh;
+    font-size: 0.8vw;
+    margin-bottom: 1vh;
 }
 
 .usuario{
@@ -83,8 +87,8 @@
 }
 
 .usuario img{
-    width: 20px;
-    height: 20px;
+    width: 2vw;
+    height: 4vh;
 }
 
 .fa:hover{
@@ -96,11 +100,11 @@
 
 .boton{
     border: none;
-    height: 30%;
+    height: 3vh;
     background-color: red;
-    border-radius: 5px;
+    border-radius: 1vh;
     color: white;
-    font-size: 16px;
+    font-size: 1vw;
     transition: 200ms ease all;
     font-family: 'Plus Jakarta Sans', sans-serif;
     &:hover{

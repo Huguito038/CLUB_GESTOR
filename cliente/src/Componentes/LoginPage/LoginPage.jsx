@@ -13,7 +13,6 @@ import AOS from 'aos';
 
 export default function LoginPage() {
   AOS.init();
-  const auth = useSelector((state) => state.isAuthenticated);
   const LogErrors = useSelector((state) => state.error);
   const navigate = useNavigate();
   const {

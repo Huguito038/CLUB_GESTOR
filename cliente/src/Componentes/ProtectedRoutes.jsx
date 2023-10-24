@@ -17,7 +17,7 @@ export default function ProtectedRoutes (){
     CheckAuth()
 },[])
  
-    if (loading) return <Loader></Loader>
+    //if (loading) return <Loader></Loader>
     if(!auth && !loading) return <Navigate to="/" replace></Navigate>
     return <Outlet></Outlet>
 
