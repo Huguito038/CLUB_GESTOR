@@ -10,7 +10,7 @@ const app = express()
 
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Reemplaza con la URL de tu frontend
+    origin: 'https://club-gestor.vercel.app', // Reemplaza con la URL de tu frontend
     credentials: true, // Si estás usando cookies, asegúrate de permitir credenciales
   }));
 app.use((req,res,next)=>{
