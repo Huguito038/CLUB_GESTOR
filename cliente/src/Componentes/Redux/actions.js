@@ -19,8 +19,7 @@ export const loginUser = (userData) => async (dispatch) => {
 };
 export const logout = () => async (dispatch) => {
     try {
-        const hola  = await axios.post('/logout')
-        console.log(hola)
+        await axios.post('/logout')
         dispatch({
             type: "LOGOUT",
         })
