@@ -3,6 +3,8 @@ const initialState = {
     user: [],
     error: [],
     jugadores:[],
+    selectSport:"",
+    selectCat:"",
     loading:true,
     succesfullmsg:false,
     unsucces:false,
@@ -39,6 +41,7 @@ const Reducer = (state = initialState, action) => {
                     error:[action.payload],
                 };
         case "GETALLPLAYERS":
+            
             return{
                 ...state,
                 jugadores:action.payload
@@ -100,6 +103,23 @@ const Reducer = (state = initialState, action) => {
             return{
                 ...state,
                 perfil:[]
+            }
+        case "SELECT_SPORT":
+            return{
+                ...state,
+                selectSport:action.payload
+
+            }
+        case "SELECT_CAT":
+            console.log(action.payload)
+            return{
+                ...state,
+                selectCat:action.payload
+            }
+        case "CLEAN_CAT":
+            return{
+                ...state,
+                selectCat:""
             }
         default:
             return state;

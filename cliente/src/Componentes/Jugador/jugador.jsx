@@ -7,65 +7,76 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { updatePlayer } from "../Redux/actions";
 import { deletePlayer } from "../Redux/actions";
-import { Modal, ModalHeader, ModalBody, ModalFooter,Table,Input,Label,FormGroup} from "reactstrap";
+import Boton from "../Boton/boton";
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Table,
+  Input,
+  Label,
+  FormGroup,
+} from "reactstrap";
 import { Alert, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaTrashAlt, FaPrint,FaArrowLeft } from "react-icons/fa";
+import { FaTrashAlt, FaPrint, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { cleanInfoPlayer } from "../Redux/actions";
-import {useReactToPrint} from "react-to-print"
-import {useRef } from "react"
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
 import React from "react";
 import QRCode from "react-qr-code";
 import { Deportes } from "../extras";
 import { cuotas } from "../extras";
 
-
-
 export const Jugador = () => {
-  const componentRef = useRef()
-  const componentRef2 = useRef()
-
+  const componentRef = useRef();
+  const componentRef2 = useRef();
   const [modal2, setModal2] = useState(false);
-  const [selectedDeporte, setSelectedDeporte] = useState(""); 
-    const handlePrint = useReactToPrint({
-        content:()=>componentRef.current,
-        documentTitle:"carnet_tiro",
-        onAfterPrint: () => {
-          window.location.reload();
-        }
-        
-    })
-    
-    const toggles = () => setModal2(!modal2);
-    const handlePrint2 = useReactToPrint({
-      content:()=>componentRef2.current,
-      documentTitle:"carnet_tiro",
-  })
-    const ClikUpdate =async()=>{
-        handlePrint()
-        await dispatch(updatePlayer({
-          _id:info._id,
-          carnet_impreso:true,
-          carnet_pago:true,
-        }))
+  const [selectedDeporte, setSelectedDeporte] = useState("");
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "carnet_tiro",
+    onAfterPrint: () => {
+      window.location.reload();
+    },
+  });
+
+  const toggles = () => setModal2(!modal2);
+  const handlePrint2 = useReactToPrint({
+    content: () => componentRef2.current,
+    documentTitle: "carnet_tiro",
+  });
+  const ClikUpdate = async () => {
+    handlePrint();
+    await dispatch(
+      updatePlayer({
+        _id: info._id,
+        carnet_impreso: true,
+        carnet_pago: true,
+      })
+    );
+  };
+  const handleCuotaChange = (event) => {
+    const cuota = event.target.name;
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setSelectedCuotas([...selectedCuotas, cuota]);
+    } else {
+      setSelectedCuotas(selectedCuotas.filter((item) => item !== cuota));
     }
-    const handleCuotaChange = (event) => {
-      const cuota = event.target.name;
-      const isChecked = event.target.checked;
-  
-      if (isChecked) {
-        setSelectedCuotas([...selectedCuotas, cuota]);
-      } else {
-        setSelectedCuotas(selectedCuotas.filter((item) => item !== cuota));
-      }
-    };
-  
+  };
+  const handleChange = (checked) => {
+    setValue("carnet_pago", !checked);
+  };
+
   const navigate = useNavigate();
   const [alert, setAlert] = useState(false);
   const [modal, setModal] = useState(false);
-  const [selectedCuotas, setSelectedCuotas] = useState([])
-  const [valorCuota, SetValorCuota] = useState(0)
+  const [selectedCuotas, setSelectedCuotas] = useState([]);
+  const [valorCuota, SetValorCuota] = useState(0);
   const [alertDelete, setAlertD] = useState(false);
   const [comision, setComision] = useState(false);
 
@@ -88,15 +99,9 @@ export const Jugador = () => {
     };
   }, [dispatch, id]);
 
-  useEffect(()=>{
-    if(!modal2) setSelectedCuotas([])
-
-  },[modal2])
-
-  useEffect(()=>{
-    console.log(selectedCuotas)
-
-  },[selectedCuotas])
+  useEffect(() => {
+    if (!modal2) setSelectedCuotas([]);
+  }, [modal2]);
 
   useEffect(() => {
     if (info) {
@@ -108,10 +113,12 @@ export const Jugador = () => {
       setValue("documento", info.documento);
       setValue("fecha_nacimiento", info.fecha_nacimiento);
       setValue("categoria", info.categoria);
-      setValue("deporte", info.deporte)
-      setSelectedDeporte(info.deporte)
-      if(info.deporte==="COMISION DIRECTIVA"){setComision(true)}
-      setValue("carnet_pago",info.carnet_pago)
+      setValue("deporte", info.deporte);
+      setSelectedDeporte(info.deporte);
+      if (info.deporte === "COMISION DIRECTIVA") {
+        setComision(true);
+      }
+      setValue("carnet_pago", info.carnet_pago);
       if (info.cuotas) {
         Object.keys(info.cuotas).forEach((cuota) => {
           setValue(`cuotas.${cuota}`, info.cuotas[cuota]);
@@ -120,13 +127,11 @@ export const Jugador = () => {
     }
   }, [info, setValue]);
 
-  const Habilitado = watch("carnet_pago")
+  const Habilitado = watch("carnet_pago");
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data)
-    if(data.deporte!=="Futbol") {
-      data.categoria = ""
-
+    if (data.deporte !== "Futbol") {
+      data.categoria = "";
     }
     await dispatch(updatePlayer(data));
     setAlert(true);
@@ -139,18 +144,18 @@ export const Jugador = () => {
     try {
       await dispatch(deletePlayer(info._id));
       setAlertD(true);
-      setModal(!modal)
+      setModal(!modal);
       setTimeout(() => {
         setAlert(false);
-        if(comision)navigate("/comisionD")
-        if(!comision)navigate("/allplayers");
+        if (comision) navigate("/comisionD");
+        if (!comision) navigate("/allplayers");
       }, 1200);
     } catch (error) {}
   };
 
   const tiempoTranscurrido = Date.now();
   const hoy = new Date(tiempoTranscurrido);
-  const fecha = hoy.toLocaleDateString()
+  const fecha = hoy.toLocaleDateString();
 
   const toggle = () => setModal(!modal);
   const categorias = [
@@ -167,54 +172,57 @@ export const Jugador = () => {
   ];
 
   const goBack = () => {
-      window.history.back();
-    };
-  
-  const valor = valorCuota*selectedCuotas.length
+    window.history.back();
+  };
+
+  const valor = valorCuota * selectedCuotas.length;
 
   return (
     <div className={stilo.contenedor}>
-       <div ref={componentRef2} className={stilo.cont}>
-                 <div className={stilo.parte_tiro}>
-                    <h2>RECIBO DE</h2>
-                    <h4>{info.nombre}</h4>
-                    <h2>UN TOTAL DE</h2>
-                    <h4>${valor}.00</h4>
-                    <h2>PERTENECE A</h2>
-                    <h4>{info?.deporte}</h4>
+      <div ref={componentRef2} className={stilo.cont}>
+        <div className={stilo.parte_tiro}>
+          <h2>RECIBO DE</h2>
+          <h4>{info.nombre}</h4>
+          <h2>UN TOTAL DE</h2>
+          <h4>${valor}.00</h4>
+          <h2>PERTENECE A</h2>
+          <h4>{info?.deporte}</h4>
+        </div>
+        <div className={stilo.parte_jugador}>
+          <div className={stilo.titu}>
+            <h2>RECIBO</h2>
+            <h4>COSQUIN {fecha}</h4>
+          </div>
+          <div className={stilo.reciv}>
+            <h3>RECIBI DE</h3>
+            <h4>{info.nombre}</h4>
+            <h3>UN TOTAL DE</h3>
+            <h4>${valor}.00</h4>
+          </div>
 
-
-                 </div>
-                <div className={stilo.parte_jugador}>
-                    <div className={stilo.titu}>
-                        <h2>RECIBO</h2>
-                        <h4>COSQUIN {fecha}</h4>
-                    </div>
-                    <div className={stilo.reciv}>
-                         <h3>RECIBI DE</h3>
-                         <h4>{info.nombre}</h4>
-                         <h3>UN TOTAL DE</h3>
-                         <h4>${valor}.00</h4>
-                    </div>
-                   
-                    <h3>PERTENECE A {info?.deporte?.toUpperCase()}</h3>
-                    <h4>EN CONCEPTO DE CUOTA/S </h4>
-                    <h5>({selectedCuotas.join("/")})</h5>
-                    <img src="https://www.ligadefutbolpunilla.org/wp-content/uploads/5c2e3fcb42fda5.34812943escudo_TiroFederal.png" alt="" />
-                    
-                </div>
-            
-       </div>  
-      <FaArrowLeft  onClick={goBack}className={stilo.arrow}></FaArrowLeft>
+          <h3>PERTENECE A {info?.deporte?.toUpperCase()}</h3>
+          <h4>EN CONCEPTO DE CUOTA/S </h4>
+          <h5>({selectedCuotas.join("/")})</h5>
+          <img
+            src="https://www.ligadefutbolpunilla.org/wp-content/uploads/5c2e3fcb42fda5.34812943escudo_TiroFederal.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <FaArrowLeft onClick={goBack} className={stilo.arrow}></FaArrowLeft>
       <div className={stilo.contendor_carnet}>
-            <div ref={componentRef} className={stilo.contenedor_info_carnet}>
-                <h4>{info.nombre}</h4>
-                <h5>{info.documento}</h5>
-                <div>
-                    <QRCode fgColor="#000000"
-                    bgColor="#00FF0000"className={stilo.qr_carnet}value={"https://club-gestor.vercel.app/perfil/"+info._id}></QRCode>
-                </div>
-             </div>
+        <div ref={componentRef} className={stilo.contenedor_info_carnet}>
+          <h4>{info.nombre}</h4>
+          <h5>{info.documento}</h5>
+          <div>
+            <QRCode
+              fgColor="#000000"
+              bgColor="#00FF0000"
+              className={stilo.qr_carnet}
+              value={"https://club-gestor.vercel.app/perfil/" + info._id}
+            ></QRCode>
+          </div>
+        </div>
       </div>
       {alert && (
         <Alert className={stilo.alert}>
@@ -232,85 +240,103 @@ export const Jugador = () => {
         </Alert>
       )}
       <div className={stilo.cont_centr}>
-        <form onSubmit={onSubmit} autocomplete="off" spellcheck="false">
+        <form onSubmit={onSubmit} autoComplete="off" spellCheck="false">
           <input style={{ display: "none" }} type="text" {...register("_id")} />
-         
+
           <input
             className={stilo.input_name}
-            
             type="text"
             {...register("nombre")}
           />
           <div className={stilo.info_second}>
-            
             {selectedDeporte === "Futbol" && (
               <div>
-              <h2>Categoria:</h2>
-           
-            <select className={stilo.input_secondari} {...register("categoria", { required: true })}>
-              <option value="" disabled>
-                Selecciona una categoría
-              </option>
-              {categorias.map((cat) => (
-                <option key={cat.value} value={cat.value}>
-                  {cat.label}
-                </option>
-              ))}
-            </select>
-            </div>
+                <h2>Categoria:</h2>
+
+                <select
+                  className={stilo.input_secondari}
+                  {...register("categoria", { required: true })}
+                >
+                  <option value="" disabled>
+                    Selecciona una categoría
+                  </option>
+                  {categorias.map((cat) => (
+                    <option key={cat.value} value={cat.value}>
+                      {cat.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
             )}
             {!comision && (
               <div>
-              <h2>Documento:</h2>
+                <h2>Documento:</h2>
                 <input
                   className={stilo.input_secondari}
                   type="text"
                   {...register("documento")}
                 />
-
-            </div>
+              </div>
             )}
-            
-            {!comision &&<div>
-              <h2>Carnet Pago:</h2>
-              <input type="checkbox" className={stilo.input_secondari} {...register("carnet_pago")} />
-             
-            </div>}
-            <div>
-            {!comision && info.carnet_impreso && <div className={stilo.carnet_impre}>
-              CARNET IMPRESO
-            </div>}
-            {!comision && !info.carnet_impreso &&<div className={stilo.carnet_imp}>
-              CARNET NO IMPRESO
-            </div>}
-            </div>
-           
-            
 
-           
-              
-          </div>
-          {!comision && <div className={stilo.info_secundaria}>
+            {!comision && (
+              <div>
+                <h2>Carnet Pago:</h2>
+                <input
+                  type="checkbox"
+                  className={stilo.checkbox}
+                  {...register("carnet_pago")}
+                />
+             
+              </div>
+            )}
             <div>
-              <h2>Deporte:</h2>
-              <select className={stilo.input_secondari}{...register("deporte", { required: true })} onChange={(e) => setSelectedDeporte(e.target.value)}>
-              <option value="" disabled>
-                Selecciona un deporte...
-              </option>
-              {Deportes.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
+              {!comision && info.carnet_impreso && (
+                <div className={stilo.carnet_impre}>
+                  <h2>Carnet Impreso: </h2>
+                  <img
+                    className={stilo.imge}
+                    src="https://cdn.icon-icons.com/icons2/317/PNG/512/sign-check-icon_34365.png"
+                    alt=""
+                  />
+                </div>
+              )}
+              {!comision && !info.carnet_impreso && (
+                <div className={stilo.carnet_impre}>
+                  <h2>Carnet Impreso: </h2>
+                  <img
+                    className={stilo.imge}
+                    src="https://cdn.icon-icons.com/icons2/317/PNG/512/sign-error-icon_34362.png"
+                    alt=""
+                  />
+                </div>
+              )}
             </div>
-            
-            
-            
-          </div>}
-          {comision && 
-          <h4 className={stilo.comision_t}>COMISION DIRECCTIVA</h4>
-          }
+          </div>
+          {!comision && (
+            <div className={stilo.info_secundaria}>
+              <div>
+                <h2>Deporte:</h2>
+                <select
+                  className={stilo.input_secondari}
+                  {...register("deporte", { required: true })}
+                  onChange={(e) => setSelectedDeporte(e.target.value)}
+                >
+                  <option value="" disabled>
+                    Selecciona un deporte...
+                  </option>
+                  {Deportes.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
+          {comision && (
+            <h4 className={stilo.comision_t}>COMISION DIRECCTIVA</h4>
+          )}
           <div className={stilo.info_secundaria}>
             <div>
               <h2>Telefono:</h2>
@@ -320,111 +346,106 @@ export const Jugador = () => {
                 {...register("telefono")}
               />
             </div>
-            
           </div>
           <div className={stilo.info_secundaria}>
             <div>
               <h2>Email:</h2>
-            <input
-              className={stilo.input_secondari}
-              type="text"
-              {...register("email")}
-            />
+              <input
+                className={stilo.input_secondari}
+                type="text"
+                {...register("email")}
+              />
             </div>
-            
-            
           </div>
           <div className={stilo.info_secundaria}>
             <div>
               <h2>Direccion:</h2>
-            <input
-              className={stilo.input_secondari}
-              type="text"
-              {...register("direccion")}
-            />
+              <input
+                className={stilo.input_secondari}
+                type="text"
+                {...register("direccion")}
+              />
             </div>
-            
           </div>
           <div className={stilo.info_secundaria}>
             <div>
               <h2>Fecha de Nacimiento:</h2>
-            <input
-              className={stilo.input_secondari}
-              type="date"
-              {...register("fecha_nacimiento")}
-            />
+              <input
+                className={stilo.input_secondari}
+                type="date"
+                {...register("fecha_nacimiento")}
+              />
             </div>
-           
-            
           </div>
           {comision && (
             <div className={stilo.info_secundaria}>
-          <div>
-              <h2>Documento:</h2>
+              <div>
+                <h2>Documento:</h2>
                 <input
                   className={stilo.input_secondari}
                   type="text"
                   {...register("documento")}
                 />
-
+              </div>
             </div>
-           
-          </div>
           )}
-          
-          {!comision && <div className={stilo.info_secundaria}>
-            <div className={stilo.couter}>
-              <h2>Cuotas:</h2>
-            {info.cuotas &&
-              Object.keys(info.cuotas).map((cuota) => (
-                <label className={stilo.cuota} key={cuota}>
-                  {cuota.charAt(0).toUpperCase() + cuota.slice(1)}
-                  <input
-                    className={stilo.mycheck}
-                    type="checkbox"
-                    {...register(`cuotas.${cuota}`)}
-                  />
-                </label>
-              ))}
+
+          {!comision && (
+            <div className={stilo.info_secundaria}>
+              <div className={stilo.couter}>
+                <h2>Cuotas:</h2>
+                {info.cuotas &&
+                  Object.keys(info.cuotas).map((cuota) => (
+                    <label className={stilo.cuota} key={cuota}>
+                      {cuota.charAt(0).toUpperCase() + cuota.slice(1)}
+                      <input
+                        className={stilo.mycheck}
+                        type="checkbox"
+                        {...register(`cuotas.${cuota}`)}
+                      />
+                    </label>
+                  ))}
+              </div>
             </div>
-            
-          </div>}
+          )}
           <div className={stilo.alin_bot}>
-            {!comision && <Button
-              className={stilo.imprimir2}
-              color="secondary"
-              onClick={toggles}
-              
-            >
-              <FaPrint></FaPrint>
-              IMPRIMIR RECIBO
-            </Button>}
+            {!comision && (
+              <Button
+                className={stilo.imprimir2}
+                color="secondary"
+                onClick={toggles}
+              >
+                <FaPrint></FaPrint>
+                IMPRIMIR RECIBO
+              </Button>
+            )}
             <Button className={stilo.succes} type="submit" color="success">
               GUARDAR
             </Button>
-            <Button color="danger" onClick={toggle}>
-              <FaTrashAlt></FaTrashAlt>
+            <Button className={stilo.clear} color="danger" onClick={toggle}>
+              <FaTrashAlt className={stilo.basura}></FaTrashAlt>
             </Button>
-            {!comision && <Button
-              className={stilo.imprimir}
-              onClick={ClikUpdate}
-              color="secondary"
-              disabled={!Habilitado}
-              
-            >
-              <FaPrint></FaPrint>
-              IMPRIMIR CARNET
-            </Button>
-            }
-            {comision && <Button
-              className={stilo.imprimir}
-              onClick={ClikUpdate}
-              color="secondary"
-              
-            >
-              <FaPrint></FaPrint>
-              IMPRIMIR CARNET
-            </Button>}
+            {!comision && (
+              <Button
+                className={stilo.imprimir}
+                onClick={ClikUpdate}
+                color="secondary"
+                disabled={!Habilitado}
+              >
+                <FaPrint></FaPrint>
+                IMPRIMIR CARNET
+              </Button>
+            )}
+            {comision && (
+              <Button
+                className={stilo.imprimir}
+                onClick={ClikUpdate}
+                color="secondary"
+              >
+                <FaPrint></FaPrint>
+                IMPRIMIR CARNET
+              </Button>
+            )}
           </div>
         </form>
         <Modal isOpen={modal} toggle={toggle}>
@@ -442,56 +463,57 @@ export const Jugador = () => {
             </Button>
           </ModalFooter>
         </Modal>
-        
 
-
-        <Modal  isOpen={modal2} toggle={toggles}>
+        <Modal isOpen={modal2} toggle={toggles}>
           <ModalHeader className={stilo.modalheader2} toggle={toggles}>
             GENERAR RECIBO
           </ModalHeader>
           <ModalBody className={stilo.modalbody}>
             <div className={stilo.cuotass}>
               <h2>Valor de la Cuota:</h2>
-              <div>$<input type="text" value={valorCuota} onChange={(e) => SetValorCuota(e.target.value)}/></div>
+              <div>
+                $
+                <input
+                  type="text"
+                  value={valorCuota}
+                  onChange={(e) => SetValorCuota(e.target.value)}
+                />
+              </div>
             </div>
             <div>
-            <Table className={stilo.tablo}>
-                  <thead>
-                    <tr>
-                      <th>Mes</th>
-                      <th>Valor</th>
-                    </tr>
-                  </thead>
-              {cuotas.map((cuota) => ( 
-                  <tbody>
+              <Table className={stilo.tablo}>
+                <thead>
+                  <tr>
+                    <th>Mes</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                {cuotas.map((cuota) => (
+                  <tbody key={cuota}>
                     <tr>
                       <td>{cuota}</td>
                       <td>
-                      <input
-                        type="checkbox"
-                        name={cuota}
-                        className={stilo.checka}
-                        checked={selectedCuotas.includes(cuota)}
-                        onChange={handleCuotaChange}
-                      />
-
+                        <input
+                          type="checkbox"
+                          name={cuota}
+                          className={stilo.checka}
+                          checked={selectedCuotas.includes(cuota)}
+                          onChange={handleCuotaChange}
+                        />
                       </td>
                     </tr>
                   </tbody>
-                   ))}
-                </Table>                                            
+                ))}
+              </Table>
             </div>
-            
-
           </ModalBody>
           <ModalFooter className={stilo.modalfooter}>
-            <Button color="secondary" onClick={handlePrint2}>IMPRIMIR RECIBO</Button>
-            
+            <Button color="secondary" onClick={handlePrint2}>
+              IMPRIMIR RECIBO
+            </Button>
           </ModalFooter>
         </Modal>
-
       </div>
-      
     </div>
   );
 };

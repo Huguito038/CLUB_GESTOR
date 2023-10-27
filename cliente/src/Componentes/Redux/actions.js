@@ -145,3 +145,29 @@ export const deletePlayer = (id) => async()=>{
         console.log(error)
     }
 }
+export const SelectSport = (deporte) => async(dispatch)=>{
+    try {
+        if(deporte!="Futbol"){
+            dispatch({
+                type:"CLEAN_CAT"
+            })
+        }
+        dispatch({
+            type:"SELECT_SPORT",
+            payload:deporte
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const SelectCat = (categoria) => async(dispatch)=>{
+    try {
+        dispatch({
+            type:"SELECT_CAT",
+            payload:categoria
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}

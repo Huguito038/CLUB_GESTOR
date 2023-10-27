@@ -7,16 +7,18 @@ import { Button} from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Deportes_list} from "../extras";
+import { SelectSport } from "../Redux/actions";
+import { SelectCat } from "../Redux/actions";
 import { FiX } from "react-icons/fi";
 
 
 
 export const AllPlayers = () => {
   const dispatch = useDispatch();
-  const players = useSelector((state) => state.jugadores);
+  const players = useSelector((state) => state.jugadores)
+  const sport = useSelector((state)=> state.selectSport)
+  const cat = useSelector((state)=>state.selectCat)
   const [termino, setTermino] = useState("");
-  const [selectedSport, setSelectedSport] = useState('')
-  const [selectedCat, setSelectedCat] = useState('')
   const [jugadores, setJugadores] = useState([]);
   useEffect(() => {
     async function getPlayers() {
@@ -41,36 +43,46 @@ export const AllPlayers = () => {
     { label: "Octava Categoria", value: "8" },
     { label: "Novena Categoria", value: "9" },
   ];
-  const handleSportChange = (event) => {
-    setSelectedSport(event.target.value);
+  const handleSportChange = async(event) => {
+    await dispatch(SelectSport(event.target.value))
   };
-  const handleCatChange = (event) => {
-    setSelectedCat(event.target.value);
+  const handleCatChange = async(event) => {
+    await dispatch(SelectCat(event.target.value));
   
   };
 
   const filteredPlayers = jugadores.filter((player) => {
-    if (!selectedSport) {
+    if (!sport) {
       return true;
     }
     
-    if(selectedCat){
-      return player.categoria === selectedCat
+    if(cat){
+      return player.categoria === cat
     }
 
-    if(selectedSport==="TODOS"){
+    if(sport==="TODOS"){
       return player.deporte
     }
-    return player.deporte === selectedSport;
+    return player.deporte === sport;
   });
 
   useEffect(() => {
-    setJugadores(players.filter(e=>e.deporte!=="COMISION DIRECTIVA"));
+    setJugadores(players.sort((a, b) => {
+      const nombreA = a.nombre.toLowerCase();
+      const nombreB = b.nombre.toLowerCase();
+      
+      if (nombreA < nombreB) {
+        return -1;
+      }
+      if (nombreA > nombreB) {
+        return 1;
+      }
+      return 0;
+    }))
+    setJugadores(players.filter(e=>e.deporte!=="COMISION DIRECTIVA"))
   }, [players]);
 
-  useEffect(()=>{
-      setSelectedCat("")
-  },[selectedSport])
+
 
   
   
@@ -83,7 +95,7 @@ export const AllPlayers = () => {
             type="text"
             onChange={(e) => setTermino(e.target.value)}
           />
-          <select value={selectedSport} onChange={handleSportChange}>
+          <select value={sport} onChange={handleSportChange}>
             <option value="" disabled>Seleccion por deporte...</option>
             <option value="TODOS">TODOS</option>
           {Deportes_list.map((cat) => (
@@ -92,11 +104,11 @@ export const AllPlayers = () => {
                   </option>
                 ))}
           </select>
-          {selectedSport === "Futbol" && (
+          {sport === "Futbol" && (
               <div>
               
            
-            <select value={selectedCat} onChange={handleCatChange}>
+            <select value={cat} onChange={handleCatChange}>
               <option value="" disabled>
                 Selecciona una categoría
               </option>
@@ -135,9 +147,9 @@ export const AllPlayers = () => {
                     <td> {Object.entries(player.cuotas).map(([mes, valor]) => (
                       <div key={mes} style={{ display: 'inline-block', marginRight: '10px' }}>
                         {valor ? (
-                          <div className={stilo.circulo_verde}>h</div>
+                          <div className={stilo.circulo_verde}></div>
                         ) : (
-                          <div className={stilo.circulo_rojo}>h</div>
+                          <div className={stilo.circulo_rojo}></div>
                         )}
                       </div>
                     ))}</td>

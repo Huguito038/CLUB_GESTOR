@@ -24,6 +24,7 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-switch": "^7.0.0",
     "react-to-print": "^2.14.13",
     "reactstrap": "^9.2.0",
     "redux": "^4.2.1",
