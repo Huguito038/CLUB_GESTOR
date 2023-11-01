@@ -14,19 +14,12 @@
 }
 
 
-.contenedor img{
-    width: 20%;
-    height: 60%;
-    margin-right: 2vw;
-    margin-left: 1vw;
-    border-radius: 2vw;
-}
 
 .titulo{
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.6vw;
+    font-size: 1.5vw;
     display: flex;
-    width: 24vw;
+    width: 1vw;
     align-items: center;
     font-weight: 600;
     text-align: center;
@@ -41,7 +34,7 @@
     list-style: none;
     align-items: center;
     height: 100%;
-    margin-left: -10vw;
+    margin-left: 0vw;
     display: flex;
     text-align: center;
 }
@@ -74,21 +67,11 @@
     color: white;
 }
 
-.usuario h2{
-    padding-top: 0.6vw;
-    margin-left: -1vw;
-    font-size: 0.8vw;
-}
 
 .usuario{
     display: block;
     position: relative;
     align-items: center;
-}
-
-.usuario img{
-    width: 3vw;
-    height: 3vh;
 }
 
 .fa:hover{
@@ -100,18 +83,28 @@
 
 .boton{
     position: absolute;
-    left: 1vw;
+    right:2vw;
     border: none;
-    height: 2vh;
+    top: 35%;
+    height: 2vw;
     width: 5vw;
     background-color: red;
     border-radius: 1vh;
     color: white;
-    font-size: 1vw;
+    font-size: 1.1vw;
     transition: 200ms ease all;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .boton:hover{
     transform: scale(1.1);
+}
+
+
+@media(min-width: 1100px) {
+    .contenedor{
+        height: 12vh;
+    }
+
+  
 }

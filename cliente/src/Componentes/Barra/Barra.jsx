@@ -21,7 +21,6 @@ export default function Barra() {
     return (
     <div className={stilo.contenedor}>
         <div className={stilo.titulo}>
-            <img src="https://w7.pngwing.com/pngs/968/453/png-transparent-black-letter-c-logo-illustration-copyright-symbol-intellectual-property-copyright-infringement-copyright-words-phrases-united-states-copyright.png" alt="" />
             ClubPro Manager
         </div>
         
@@ -32,8 +31,6 @@ export default function Barra() {
             <Link to="/comisionD"style={{ textDecoration: 'none' }}><li><h2>COMISION</h2></li></Link>
         </ul>
         <div className={stilo.usuario}>
-            <img src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40" alt="" />
-            <h2>Bienvenido {user.nombre}</h2>
             <button onClick={onSubmit} className={stilo.boton}>SALIR</button>
         </div>
         

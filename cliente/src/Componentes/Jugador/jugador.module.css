@@ -263,9 +263,9 @@
 
 .arrow{
     position: absolute;
-    font-size: 60px;
-    top: 30px;
-    left: 40px;
+    font-size: 4vw;
+    top: 3vw;
+    left: 3vw;
     color: #0e2125;
 }
 
