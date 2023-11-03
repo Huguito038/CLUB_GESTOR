@@ -1,7 +1,5 @@
 
 import stilo from "../Home/Home.module.css"
-import logo from "../Home/logo.png"
-import { FaUserAlt,FaMoneyBillWave,FaLayerGroup} from "react-icons/fa";
 import { getAllPlayers } from "../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -124,8 +122,6 @@ export default function Home (){
                             <h2>{comision.length}</h2>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             

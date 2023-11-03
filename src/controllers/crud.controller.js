@@ -76,3 +76,15 @@ export const getallPlayers = async(req,res)=>{
     }
 
 }
+export const modificarPlayers= async(req,res)=>{
+    const sessionPlayers = await Player.find({ user: req.user.id });
+    try{
+        for (const player of sessionPlayers) {
+            await Player.findByIdAndUpdate(player._id, req.body);
+          }
+        res.send("actualizado con exito")
+
+    }catch(error){
+        res.json(error.message)
+    }
+}

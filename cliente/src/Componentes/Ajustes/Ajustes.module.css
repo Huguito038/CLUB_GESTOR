@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
+.contenedor{
+    background-color: rgb(141, 141, 141);
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.titulo{
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(80, 80, 80);
+    text-align: center;
+    border-bottom: 0.1vw solid rgb(44, 44, 44);
+}
+
+.titulo h2{
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding-top: 2.3vh;
+}
+
+.contenedor ul li{
+    font-size: 2vw;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 5vh;
+}
+
+.contenedor ul{
+    margin-top: 5vh;
+}

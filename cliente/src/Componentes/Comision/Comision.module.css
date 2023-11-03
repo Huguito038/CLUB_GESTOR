@@ -1,103 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabarito&display=swap");
 
-
-
-.contenedor{
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: rgb(232, 242, 253);
-    right: 0;
-    margin: auto;
-    position: relative;
+.contenedor {
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgb(232, 242, 253);
+  right: 0;
+  z-index: 100;
+  margin: auto;
+  position: relative;
 }
 
-
-
-.jugador{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid grey;
+.jugador {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid grey;
 }
 
-.not{
-    width: 100%;
-    font-size: 30px;
-}
-.titulos{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+.cont {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
 }
 
-.tabla{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    font-size: 10px;
-    overflow: hidden;
-    text-align: center;
-    font-family: 'Bricolage Grotesque', sans-serif;
+.nombre {
+  font-size: 1.1vw;
+  letter-spacing: 0.1vw;
+  text-transform: uppercase;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
 }
 
-.boton{
-    font-size: 12px;
-}
-.nombre{
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-    font-weight: 800;
+.not {
+  width: 100%;
+  font-size: 3vh;
 }
 
-.contenedor_tabla{
-    position: absolute;
-    width: 80%;
-    border-radius: 10px;
-    top: 100px;
-    left: 0;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    right: 0;
-    margin: auto;
-    font-size: 10px;
-    text-align: center;
-    font-family: 'Bricolage Grotesque', sans-serif;
+.titulos {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
 
+.tabla {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2vw;
+  overflow: hidden;
+  text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.boton {
+  font-size: 1vw;
+}
+
+.contenedor_tabla {
+  position: absolute;
+  width: 80%;
+  border-radius: 1vw;
+  top: 15vh;
+  left: 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
 .contenedor_tabla::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-
-.titulos2{
-    font-size: 20px; 
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-    text-transform: uppercase; 
-
-}
-.imge{
-    width: 30px;
+.titulos2 {
+  font-size: 1.2vw;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-transform: uppercase;
 }
 
-.search{
-    z-index: 1000;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    & input{
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        border: none;
-        text-align: center;
-        border-radius: 10px;
-        height: 40px;
-        width: 300px;
-        font-family: 'Plus Jakarta Sans', sans-serif; 
-    }
+.search {
+  z-index: 1000;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
+
+.search input {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  margin-top: 5vh;
+  text-align: center;
+  border-radius: 10px;
+  height: 4vh;
+  font-size: 1.5vw;
+  width: 30vw;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.imge {
+  width: 3vw;
+}
+

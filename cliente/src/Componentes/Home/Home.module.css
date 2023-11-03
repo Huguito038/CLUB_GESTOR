@@ -4,10 +4,10 @@
   width: 100%;
   position: relative;
   right: 0;
-  overflow: hidden;
   background-color: rgb(232, 242, 253);
   align-items: center;
-  height: 100%;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .contenedor h2 {
@@ -36,11 +36,10 @@
 
 .sections div div {
   display: block;
-  margin-left: 2vw;
-  margin-top: -4vh;
+  margin-left: 1.6vw;
   margin-right: 2vw;
-  width: 20vw;
-  height: 5%;
+  width: 22vw;
+  height: 6%;
   box-shadow: none;
   background-color: transparent;
 }

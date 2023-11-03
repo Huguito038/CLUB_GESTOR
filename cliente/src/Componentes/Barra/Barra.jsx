@@ -4,6 +4,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/actions";
 import { useNavigate } from "react-router-dom";
+import ajustes from "./ajustes.png"
 
 
 
@@ -32,6 +33,7 @@ export default function Barra() {
         </ul>
         <div className={stilo.usuario}>
             <button onClick={onSubmit} className={stilo.boton}>SALIR</button>
+            <Link to="/ajustes"><img src={ajustes} alt="" className={stilo.ajustes} /></Link>
         </div>
         
 

@@ -137,6 +137,15 @@ export const updatePlayer = (data)=>async()=>{
     }
 
 }
+export const updateAll= (data)=>async()=>{
+    try {
+        await axios.put("/updateAll",data)
+    } catch (error) {
+        console.log(error)
+        
+    }
+
+}
 export const deletePlayer = (id) => async()=>{
     try {
         console.log(id)
@@ -160,7 +169,6 @@ export const SelectSport = (deporte) => async(dispatch)=>{
         console.log(error)
     }
 }
-
 export const SelectCat = (categoria) => async(dispatch)=>{
     try {
         dispatch({

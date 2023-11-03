@@ -11,7 +11,7 @@ import { NewPlayer } from './Componentes/NewPlayer/NewPlayer';
 import { AllPlayers } from './Componentes/AllPlayers/AllPlayers';
 import { Jugador } from './Componentes/Jugador/jugador';
 import { Comision } from './Componentes/Comision/Comision';
-import { Categoria } from './Componentes/Categorias/categorias';
+import Ajustes from './Componentes/Ajustes/Ajustes';
 import Loader from './Componentes/Loader/Loader';
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
             <Route path='/allPlayers' element={<AllPlayers></AllPlayers>}/>
             <Route path='/perfil/:id' element={<Jugador></Jugador>}/>
             <Route path='/comisionD' element={<Comision></Comision>}/>
+            <Route path='/ajustes' element={<Ajustes></Ajustes>}></Route>
           </Route>
        </Routes>
     </div>
