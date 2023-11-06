@@ -50,13 +50,10 @@ export default function LoginPage() {
               <div className={stilo.error} key={i}>{error.message}</div>
             ))}
             <div>
-              <h2 className={stilo.info}>
-                <FaUserAlt className={stilo.info2}></FaUserAlt>EMAIL
-              </h2>
               <input
                 className={stilo.input}
                 type="email"
-                placeholder="Email"
+                placeholder="E-mail"
                 {...register("email", { required: true })}
               />
               {errors.email && (
@@ -64,9 +61,6 @@ export default function LoginPage() {
               )}
             </div>
             <div>
-              <h2 className={stilo.info}>
-                <FaUnlockAlt className={stilo.info2}></FaUnlockAlt>PASSWORD
-              </h2>
               <input
                 className={stilo.input}
                 type="password"
