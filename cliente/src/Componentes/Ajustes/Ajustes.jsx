@@ -37,8 +37,8 @@ const Ajustes = () => {
         <div className={stilo.contenedor}>
             <div className={stilo.titulo}><h2>Ajustes</h2></div>
             <ul>
-                <li>Restaurar cuotas jugadores :<Button color="secondary" onClick={toggle}>Click</Button> </li>
-                <li>Restaurar carnets impresos jugadores :<Button color="secondary" onClick={toggle2}>Click</Button> </li>
+                <li>Restaurar cuotas jugadores <Button color="secondary" onClick={toggle}>Click</Button> </li>
+                <li>Restaurar carnets impresos jugadores <Button color="secondary" onClick={toggle2}>Click</Button> </li>
             </ul>
                 <div>
                     <Modal isOpen={modal} toggle={toggle}>

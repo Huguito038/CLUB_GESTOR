@@ -12,7 +12,7 @@ import { AllPlayers } from './Componentes/AllPlayers/AllPlayers';
 import { Jugador } from './Componentes/Jugador/jugador';
 import { Comision } from './Componentes/Comision/Comision';
 import Ajustes from './Componentes/Ajustes/Ajustes';
-import Loader from './Componentes/Loader/Loader';
+import Qrreader from './Componentes/QrReader/qrreader';
 
 function App() {
   const {pathname} = useLocation()
@@ -23,6 +23,7 @@ function App() {
        <Routes>
           <Route path='/' element={<LoginPage/>}/>
           <Route path='/register' element={<RegisterPage/>}/>
+          
           <Route element={<ProtectedRoutes></ProtectedRoutes>}>
             <Route path='/home' element={<Home></Home>}/>
             <Route path='/newPlayer' element={<NewPlayer></NewPlayer>}/>

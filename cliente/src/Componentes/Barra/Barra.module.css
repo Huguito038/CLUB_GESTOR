@@ -6,24 +6,50 @@
     left: 0;
     width: 100%;
     display: flex;
-    overflow: hidden;
     justify-content: space-around;
-    height: 8vh;
+    height: 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.562); /* Puedes ajustar la sombra según tus preferencias */
     background-color: rgb(255, 255, 255);
-    z-index: 10000000;
+    z-index: 99999999999999;
 }
 
 
 
 .titulo{
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.5vw;
+    font-size: 20px;
     display: flex;
-    width: 1vw;
+    width: 10px;
     align-items: center;
     font-weight: 600;
     text-align: center;
 }
+
+
+.scan{
+    font-size: 30px;
+    height: 70px;
+    position: absolute;
+    left: 47.7%;
+    color: whitesmoke;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    background-color: #1f1f1f;
+    border-radius: 30vw;
+    z-index: 99999999999;
+}
+.scan:hover{
+    cursor: pointer;
+    
+}
+
+.scan img{
+    width: 65%;
+}
+
 
 .contenedor div{
     text-align: center;
@@ -34,14 +60,18 @@
     list-style: none;
     align-items: center;
     height: 100%;
-    margin-left: 0vw;
+    margin-left: -17px;
     display: flex;
     text-align: center;
 }
 .cont_links li h2{
-    text-align: center;
-    font-size: 1.3vw;
-    padding-top: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    height: 80px;
+    width: 150px;
+    padding-top: 0px;
     margin: 0 auto;
     text-decoration: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -50,21 +80,20 @@
     
 }
 
+.cont_links li:hover{
+    background-color: #1f1f1f;
+}
+
+.cont_links li h2:hover{
+    
+    color: whitesmoke;
+}
+
 .cont_links li{
     width: auto;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    padding-top: 154vh;
-    padding-bottom: 154vh;
-    transition: 1s ease all;    
-}
-
-.cont_links li:hover{
-    background-color: #000000;  
-}
-
-.cont_links li:hover  h2{
-    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: 0.4s ease all;    
 }
 
 
@@ -83,24 +112,24 @@
 
 .boton{
     position: absolute;
-    right:2vw;
+    right:20px;
     border: none;
     top: 35%;
-    height: 2vw;
-    width: 5vw;
+    height: 25px;
+    width: 90px;
     background-color: red;
-    border-radius: 1vh;
+    border-radius: 10px;
     color: white;
-    font-size: 1.1vw;
+    font-size: 15px;
     transition: 200ms ease all;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .ajustes{
     position: absolute;
-    right: -2vw;
-    top: 2vh;
-    height: 3vw;
+    right: -30px;
+    top: 16px;
+    height: 43px;
     width: auto;
     transition: 200ms ease all;}
 

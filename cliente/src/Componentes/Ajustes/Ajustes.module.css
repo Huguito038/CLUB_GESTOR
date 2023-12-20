@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+
 
 .contenedor{
     background-color: rgb(141, 141, 141);
     width: 100%;
     overflow: hidden;
+    box-shadow:  5px 5px 12px rgba(0, 0, 0, 0.507);
     height: 100vh;
 }
 
@@ -12,21 +15,22 @@
     height: 8vh;
     background-color: rgb(80, 80, 80);
     text-align: center;
-    border-bottom: 0.1vw solid rgb(44, 44, 44);
+    border-bottom: 0.1vw solid rgb(22, 22, 22);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.212);
 }
 
 .titulo h2{
     font-size: 2vw;
     text-transform: uppercase;
     color: white;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    padding-top: 2.3vh;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 12px;
 }
 
 .contenedor ul li{
-    font-size: 2vw;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    margin-bottom: 5vh;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .contenedor ul{

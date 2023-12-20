@@ -179,3 +179,4 @@ export const SelectCat = (categoria) => async(dispatch)=>{
         console.log(error)
     }
 }
+

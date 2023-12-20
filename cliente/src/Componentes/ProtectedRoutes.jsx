@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate, Outlet } from "react-router-dom"
 import { useEffect } from "react"
@@ -17,7 +16,9 @@ export default function ProtectedRoutes (){
     CheckAuth()
 },[])
  
-    //if (loading) return <Loader></Loader>
+    if (loading) {
+    return <Loader></Loader>;
+    }
     if(!auth && !loading) return <Navigate to="/" replace></Navigate>
     return <Outlet></Outlet>
 

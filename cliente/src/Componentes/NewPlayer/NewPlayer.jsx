@@ -88,6 +88,7 @@ export const NewPlayer= ()=>{
             
             <div className={stilo.formulario}>
                 
+                
                 <h2>Agregar Jugador</h2>
                 <form onSubmit={onSubmit} autoComplete="off" spellCheck="false">
                     <div className={stilo.formu}>

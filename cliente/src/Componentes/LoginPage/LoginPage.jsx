@@ -7,7 +7,6 @@ import 'aos/dist/aos.css';
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import stilo from "../LoginPage/LoginPage.module.css";
 import { Link } from "react-router-dom";
-import { FaUserAlt, FaUnlockAlt } from "react-icons/fa";
 import AOS from 'aos';
 
 
@@ -30,7 +29,7 @@ export default function LoginPage() {
       console.error("Error al iniciar sesión:", error);
     }
   });
-
+ 
   return (
     <div className={stilo.contenedor}>
       <div className={stilo.formulario}>
