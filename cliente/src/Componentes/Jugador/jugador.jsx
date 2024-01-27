@@ -7,28 +7,27 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { updatePlayer } from "../Redux/actions";
 import { deletePlayer } from "../Redux/actions";
-import Boton from "../Boton/boton";
 import {
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
   Table,
-  Input,
-  Label,
-  FormGroup,
 } from "reactstrap";
 import { Alert, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaTrashAlt, FaPrint, FaArrowLeft } from "react-icons/fa";
+import { FaTrashAlt, FaPrint} from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { cleanInfoPlayer } from "../Redux/actions";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 import React from "react";
 import QRCode from "react-qr-code";
+import logo from "../Jugador/escudo.png"
 import { Deportes } from "../extras";
 import { cuotas } from "../extras";
+import plus from "./plus.png"
 
 export const Jugador = () => {
   const componentRef = useRef();
@@ -42,7 +41,7 @@ export const Jugador = () => {
       window.location.reload();
     },
   });
-
+  const toogleOtros = ()=> setOtros(!otros)
   const toggles = () => setModal2(!modal2);
   const handlePrint2 = useReactToPrint({
     content: () => componentRef2.current,
@@ -68,15 +67,14 @@ export const Jugador = () => {
       setSelectedCuotas(selectedCuotas.filter((item) => item !== cuota));
     }
   };
-  const handleChange = (checked) => {
-    setValue("carnet_pago", !checked);
-  };
+  
 
   const navigate = useNavigate();
   const [alert, setAlert] = useState(false);
   const [modal, setModal] = useState(false);
+  const [otros, setOtros] = useState(false);
   const [selectedCuotas, setSelectedCuotas] = useState([]);
-  const [valorCuota, SetValorCuota] = useState(0);
+  const [valorCuota, SetValorCuota] = useState("");
   const [alertDelete, setAlertD] = useState(false);
   const [comision, setComision] = useState(false);
 
@@ -91,6 +89,7 @@ export const Jugador = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const info = useSelector((state) => state.perfil);
+  
 
   useEffect(() => {
     dispatch(infoPlayer(id));
@@ -109,12 +108,12 @@ export const Jugador = () => {
       setValue("nombre", info.nombre);
       setValue("direccion", info.direccion);
       setValue("telefono", info.telefono);
-      setValue("email", info.email);
       setValue("documento", info.documento);
       setValue("fecha_nacimiento", info.fecha_nacimiento);
       setValue("categoria", info.categoria);
       setValue("deporte", info.deporte);
       setSelectedDeporte(info.deporte);
+      setValue("otros",info.otros);
       if (info.deporte === "COMISION DIRECTIVA") {
         setComision(true);
       }
@@ -137,7 +136,7 @@ export const Jugador = () => {
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
-    }, 2500);
+    }, 1500);
   });
 
   const DeleteF = async () => {
@@ -204,12 +203,12 @@ export const Jugador = () => {
           <h4>EN CONCEPTO DE CUOTA/S </h4>
           <h5>({selectedCuotas.join("/")})</h5>
           <img
-            src="https://www.ligadefutbolpunilla.org/wp-content/uploads/5c2e3fcb42fda5.34812943escudo_TiroFederal.png"
+            src={logo}
             alt=""
           />
         </div>
       </div>
-      <FaArrowLeft onClick={goBack} className={stilo.arrow}></FaArrowLeft>
+      <FaArrowAltCircleLeft onClick={goBack} className={stilo.arrow}></FaArrowAltCircleLeft>
       <div className={stilo.contendor_carnet}>
         <div ref={componentRef} className={stilo.contenedor_info_carnet}>
           <h4>{info.nombre}</h4>
@@ -219,7 +218,7 @@ export const Jugador = () => {
               fgColor="#000000"
               bgColor="#00FF0000"
               className={stilo.qr_carnet}
-              value={"https://club-gestor.vercel.app/perfil/" + info._id}
+              value={"https://club-gestor.vercel.app/datos/" + info._id}
             ></QRCode>
           </div>
         </div>
@@ -239,6 +238,33 @@ export const Jugador = () => {
           <p>Se ha borrado con exito el jugador de la base de datos.</p>
         </Alert>
       )}
+      {otros && (
+         <div className={stilo.card}>
+         <div className={stilo.header}>
+           
+           <div className={stilo.content}>
+             <span className={stilo.title}>OTROS DATOS</span>
+             <p className={stilo.message}>
+              <textarea
+              {...register("otros", { required: false })}>
+              </textarea>
+             </p>
+           </div>
+           <div className={stilo.actions}>
+             <button
+               className={stilo.desactivate}
+               type="button"
+               onClick={toogleOtros}
+             >
+               CERRAR
+             </button>
+             
+           </div>
+         </div>
+   
+       </div>
+        )}
+
       <div className={stilo.cont_centr}>
         <form onSubmit={onSubmit} autoComplete="off" spellCheck="false">
           <input style={{ display: "none" }} type="text" {...register("_id")} />
@@ -282,12 +308,14 @@ export const Jugador = () => {
             {!comision && (
               <div>
                 <h2>Carnet Pago:</h2>
+                <label className={stilo.switch}>
                 <input
                   type="checkbox"
                   className={stilo.checkbox}
                   {...register("carnet_pago")}
                 />
-             
+                 <span className={stilo.slider}></span>
+             </label>
               </div>
             )}
             <div>
@@ -300,6 +328,7 @@ export const Jugador = () => {
                     alt=""
                   />
                 </div>
+                
               )}
               {!comision && !info.carnet_impreso && (
                 <div className={stilo.carnet_impre}>
@@ -312,6 +341,7 @@ export const Jugador = () => {
                 </div>
               )}
             </div>
+            <button type="button" className={stilo.boton_otros} onClick={toogleOtros}>OTROS</button>
           </div>
           {!comision && (
             <div className={stilo.info_secundaria}>
@@ -347,16 +377,7 @@ export const Jugador = () => {
               />
             </div>
           </div>
-          <div className={stilo.info_secundaria}>
-            <div>
-              <h2>Email:</h2>
-              <input
-                className={stilo.input_secondari}
-                type="text"
-                {...register("email")}
-              />
-            </div>
-          </div>
+         
           <div className={stilo.info_secundaria}>
             <div>
               <h2>Direccion:</h2>
@@ -408,6 +429,7 @@ export const Jugador = () => {
               </div>
             </div>
           )}
+          
           <div className={stilo.alin_bot}>
             {!comision && (
               <Button
@@ -448,6 +470,7 @@ export const Jugador = () => {
             )}
           </div>
         </form>
+        
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader className={stilo.modalheader} toggle={toggle}>
             ¡AVISO!
@@ -466,26 +489,29 @@ export const Jugador = () => {
 
         <Modal isOpen={modal2} toggle={toggles}>
           <ModalHeader className={stilo.modalheader2} toggle={toggles}>
-            GENERAR RECIBO
+            GENERAR RECIBO 
           </ModalHeader>
           <ModalBody className={stilo.modalbody}>
-            <div className={stilo.cuotass}>
-              <h2>Valor de la Cuota:</h2>
-              <div>
-                $
-                <input
-                  type="text"
-                  value={valorCuota}
-                  onChange={(e) => SetValorCuota(e.target.value)}
-                />
-              </div>
-            </div>
+          <div className={stilo.inputGroup}>
+      <input
+        type="text"
+        required
+        autoComplete="off"
+        onChange={(e) => SetValorCuota(e.target.value)}
+        id="name"
+        value={valorCuota}
+        className={stilo.inputField}
+      />
+      <label htmlFor="name" className={stilo.inputLabel}>
+        Valor Cuota $
+      </label>
+    </div>
             <div>
               <Table className={stilo.tablo}>
                 <thead>
                   <tr>
                     <th>Mes</th>
-                    <th>Valor</th>
+                    <th>Paga</th>
                   </tr>
                 </thead>
                 {cuotas.map((cuota) => (
@@ -493,6 +519,7 @@ export const Jugador = () => {
                     <tr>
                       <td>{cuota}</td>
                       <td>
+                      <label className={stilo.container2}>
                         <input
                           type="checkbox"
                           name={cuota}
@@ -500,6 +527,8 @@ export const Jugador = () => {
                           checked={selectedCuotas.includes(cuota)}
                           onChange={handleCuotaChange}
                         />
+                        <div className={stilo.checkmark}></div>
+                        </label>
                       </td>
                     </tr>
                   </tbody>
@@ -513,6 +542,7 @@ export const Jugador = () => {
             </Button>
           </ModalFooter>
         </Modal>
+        
       </div>
     </div>
   );

@@ -6,12 +6,50 @@
   width: 100%;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 88vh;
   background-color: rgb(232, 242, 253);
   right: 0;
   z-index: 100;
   margin: auto;
   position: relative;
+}
+
+.filtrado {
+  z-index: 1000;
+  margin: 0 auto;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 4vh;
+}
+
+.filtrado input {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  width: 250px;
+  height: 40px;
+  font-family: "Gabarito", cursive;
+}
+
+.filtrado select {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  width: 250px;
+  height: 40px;
+  transition: 0.25s ease all;
+  font-family: "Gabarito", cursive;
+}
+
+.filtrado select select {
+  border: 1px solid #8d0303;
+  background-color: #f2f2f2;
+  padding: 1vw;
 }
 
 .jugador {
@@ -28,8 +66,8 @@
 }
 
 .nombre {
-  font-size: 1.1vw;
-  letter-spacing: 0.1vw;
+  font-size: 11px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 800;
@@ -37,7 +75,7 @@
 
 .not {
   width: 100%;
-  font-size: 3vh;
+  font-size: 30px;
 }
 
 .titulos {
@@ -49,60 +87,87 @@
 .tabla {
   width: 100%;
   height: 100%;
-  font-size: 1.2vw;
+  font-size: 20px;
   overflow: hidden;
   text-align: center;
   font-family: "Bricolage Grotesque", sans-serif;
 }
 
 .boton {
-  font-size: 1vw;
+  font-size: 12px;
+}
+
+.search input{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  width: 250px;
+  height: 40px;
+  font-family: "Gabarito", cursive;
+  
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 40px;
 }
 
 .contenedor_tabla {
-  position: absolute;
+  position: relative;
   width: 80%;
-  border-radius: 1vw;
-  top: 15vh;
+  height: auto;
+  max-height: 80%;
+  border-radius: 10px;
+  top: 0;
   left: 0;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   background-color: transparent;
   right: 0;
   margin: auto;
+  margin-top: 20px;
   text-align: center;
   font-family: "Bricolage Grotesque", sans-serif;
 }
 
 .contenedor_tabla::-webkit-scrollbar {
-  display: none;
+  width: 8px; /* Ancho del scrollbar */
 }
 
+.contenedor_tabla::-webkit-scrollbar-thumb {
+  background-color: rgba(187, 186, 186, 0.733); /* Color del "thumb" del scrollbar (barra deslizante) */
+  border-radius: 4px; /* Bordes redondeados del "thumb" */
+}
+
+.contenedor_tabla::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1); /* Color del track (fondo del scrollbar) */
+  border-radius: 4px; /* Bordes redondeados del track */
+}
 .titulos2 {
-  font-size: 1.2vw;
+  font-size: 15px;
   font-family: "Plus Jakarta Sans", sans-serif;
   text-transform: uppercase;
 }
 
-.search {
-  z-index: 1000;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.search input {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  border: none;
-  margin-top: 5vh;
-  text-align: center;
-  border-radius: 10px;
-  height: 4vh;
-  font-size: 1.5vw;
-  width: 30vw;
-  font-family: "Plus Jakarta Sans", sans-serif;
-}
-
 .imge {
-  width: 3vw;
+  width: 25px;
+}
+
+.circulo_verde {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: green;
+  color: green;
+}
+
+.circulo_rojo {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  color: rgb(255, 4, 4);
+  background-color: rgb(255, 4, 4);
 }
 

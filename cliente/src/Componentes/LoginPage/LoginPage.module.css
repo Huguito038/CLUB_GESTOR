@@ -35,7 +35,7 @@
 }
 
 .titulo{
-    font-size: 3vw;
+    font-size: 50px;
     margin-top: 2vw;
     font-family: 'Bricolage Grotesque', sans-serif;
     color: white;
@@ -44,7 +44,7 @@
 
 .titulo_2{
     margin-top: -1vh;
-    font-size: 4vw;
+    font-size: 70px;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -54,7 +54,8 @@
 }
 
 .subtitulo{
-    font-size: 1.2vw;
+    font-size: 15px;
+    font-weight: 300;
     font-family: 'Prompt', sans-serif;
     color: rgb(0, 0, 0);
 }
@@ -72,7 +73,7 @@
 .input{
     width:30vw;
     height: 3vw;
-    font-size: 1vw;
+    font-size: 20px;
     margin-bottom: 3vw;
     margin-top: 2vw;
     color: rgb(0, 0, 0);
@@ -85,8 +86,8 @@
 }
 .input::placeholder{
     color: #adadad;
-    font-size: 1.3vw;
-    padding-left: 1vw;
+    font-size: 15px;
+    padding-left: 4px;
     font-weight: 100;
   }
 

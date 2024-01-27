@@ -11,6 +11,7 @@ router.put("/update/:id",authRequired,updatePlayer)
 router.put("/updateAll",authRequired,modificarPlayers)
 router.delete("/delete/:id",authRequired,deletePlayer)
 router.get("/find/:id",authRequired,findPlayer)
+router.get("/buscar/:id",findPlayer)
 
 
 

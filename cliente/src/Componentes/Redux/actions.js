@@ -156,7 +156,7 @@ export const deletePlayer = (id) => async()=>{
 }
 export const SelectSport = (deporte) => async(dispatch)=>{
     try {
-        if(deporte!="Futbol"){
+        if(deporte!=="Futbol"){
             dispatch({
                 type:"CLEAN_CAT"
             })
@@ -179,4 +179,13 @@ export const SelectCat = (categoria) => async(dispatch)=>{
         console.log(error)
     }
 }
-
+export const findPublicData = (id)=> async(dispatch)=>{
+    try {
+        const res = await axios.get("/buscar/"+id)
+        if(res){
+            return res.data
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}

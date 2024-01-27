@@ -1,7 +1,7 @@
 import Player from "../models/player.model.js"
 
 export const newPlayer = async(req,res)=> {
-    const {nombre,categoria,email,telefono,deporte,fecha_nacimiento,direccion,documento} = req.body
+    const {nombre,categoria,telefono,deporte,fecha_nacimiento,direccion,documento,otros} = req.body
     try {
         const newUser= new Player({
         nombre,
@@ -21,10 +21,10 @@ export const newPlayer = async(req,res)=> {
             noviembre:false,
             diciembre:false,
         },
-        email,
         telefono,
         fecha_nacimiento,
         direccion,
+        otros,
         carnet_impreso:false,
         carnet_pago:false,
         documento,

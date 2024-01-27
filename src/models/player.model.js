@@ -24,11 +24,6 @@ const playerSchema = new mongoose.Schema({
         type: String,
         required:true,
     },
-    email:{
-        type: String, 
-        required:true,
-        trim:true,
-    },
     fecha_nacimiento:{
         type:String,
         required:true,
@@ -48,6 +43,10 @@ const playerSchema = new mongoose.Schema({
         type: String,
         required:true,
  
+    },
+    otros:{
+        type:String,
+        required:false
     },
     documento:{
         type:String,

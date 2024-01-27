@@ -63,32 +63,30 @@ export const NewPlayer= ()=>{
     
     return(
         <div className={stilo.contenedor}>
-            {successfull &&
-                <Alert className={stilo.alert}>
-                <h4 className="alert-heading">
-                    ¡JUGADOR CARGADO EN LA BASE DE DATOS!
-                </h4>
-                <p>
-                 Se ha completado la carga de este jugador puedes ver todos los jugadores en JUGADORES
-                </p>
-               
-              </Alert>
-              
-            }
-            {unsuccess && 
-            <Alert className={stilo.alert} color="danger">
-            <h4 className="alert-heading">
-              ESTE JUGADOR YA SE ENCUENTRA EN LA BASE DE DATOS
-            </h4>
-            <p>
-             Por favor verifica la existencia de este jugador en tu base de datos...
-            </p>
-           
-          </Alert>}
+            <div className={stilo.alertContainer}>
+                {successfull &&
+                    <Alert className={stilo.alert}>
+                        <h4 className="alert-heading">
+                            ¡JUGADOR CARGADO EN LA BASE DE DATOS!
+                        </h4>
+                        <p>
+                            Se ha completado la carga de este jugador puedes ver todos los jugadores en JUGADORES
+                        </p>
+                    </Alert>
+                }
+                {unsuccess &&
+                    <Alert className={stilo.alert} color="danger">
+                        <h4 className="alert-heading">
+                            ESTE JUGADOR YA SE ENCUENTRA EN LA BASE DE DATOS
+                        </h4>
+                        <p>
+                            Por favor, verifica la existencia de este jugador en tu base de datos...
+                        </p>
+                    </Alert>
+                }
+            </div>
             
             <div className={stilo.formulario}>
-                
-                
                 <h2>Agregar Jugador</h2>
                 <form onSubmit={onSubmit} autoComplete="off" spellCheck="false">
                     <div className={stilo.formu}>
@@ -119,18 +117,20 @@ export const NewPlayer= ()=>{
                             {errors.fecha_nacimiento && (<p className={stilo.errors}>Fecha is required</p>)}
                         </div>
                         <div>
-                            <h5>Email</h5>
-                            <input type="text" placeholder="Email" {...register("email", { required: true })}/>
-                            {errors.email && (<p className={stilo.errors}>Email is required</p>)}
-                        </div>
-                        
-                    </div>
-                    <div className={stilo.formu}>
-                        <div>
                             <h5>Direccion</h5>
                             <input type="text" placeholder="Direccion" {...register("direccion", { required: true })}/>
                             {errors.direccion && (<p className={stilo.errors}>Direccion is required</p>)}
                         </div>
+                       
+                        
+                    </div>
+                    <div className={stilo.formu}>
+                        <div>
+                            <h5>Documento</h5>
+                            <input type="text" placeholder="Documento" {...register("documento", { required: true })}/>
+                            {errors.documento && (<p className={stilo.errors}>Document is required</p>)}
+                        </div>
+                        
                         <div>
                             <h5>Telefono</h5>
                             <input type="text" placeholder="Telefono" {...register("telefono", { required: true })}/>
@@ -139,10 +139,10 @@ export const NewPlayer= ()=>{
                     </div>
                     <div className={stilo.formu}>
                     <div>
-                            <h5>Documento</h5>
-                            <input type="text" placeholder="Documento" {...register("documento", { required: true })}/>
-                            {errors.documento && (<p className={stilo.errors}>Document is required</p>)}
+                            <h5>OTROS</h5>
+                            <textarea type="textarea" placeholder="OTROS DATOS" {...register("otros", { required: false })}/>
                         </div>
+                    
                         {selectedDeporte === "Futbol" && (
                         
                         <div>
